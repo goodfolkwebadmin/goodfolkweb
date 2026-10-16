@@ -56,9 +56,12 @@ header .wrap{display:flex;align-items:center;justify-content:space-between;heigh
 h1{font-size:clamp(46px,6.2vw,80px);line-height:.98;letter-spacing:-.035em;font-weight:800}
 .lede{font-size:clamp(19px,1.7vw,21px);line-height:1.5;color:var(--body);margin-top:22px;max-width:32ch}
 .hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:16px 26px;margin-top:30px}
-.price-line{margin-top:24px;font-size:16px;color:var(--muted)}
+.price-line{margin-top:22px;font-size:16px;color:var(--muted)}
 .price-line b{color:var(--ink)}
-.exp{display:inline-block;margin-top:18px;padding:10px 16px;border-radius:14px;background:var(--sage);color:var(--pine);font-size:16px;font-weight:500}
+.proof{margin-top:22px}
+.rating{display:inline-flex;align-items:center;gap:10px;font-size:16px;font-weight:600;color:var(--ink);text-decoration:none}
+.rating .st{color:var(--honey);letter-spacing:2px;font-size:19px}
+.exp{display:inline-block;margin-top:14px;padding:10px 16px;border-radius:14px;background:var(--sage);color:var(--pine);font-size:16px;font-weight:500}
 .exp b{font-family:var(--head);font-weight:800;white-space:nowrap;margin-right:4px}
 
 .visual{position:relative;padding:0 40px 56px 48px}
@@ -232,6 +235,7 @@ footer .wrap{align-items:center}
         <a class="link" href="#how">How it works</a>
       </div>
       <p class="price-line"><b>$950</b> one time, then <b>$29/month</b> for hosting and edits.</p>
+      <div class="proof"><a class="rating" href="#reviews"><span class="st" aria-hidden="true">★★★★★</span> 5-star reviews from past clients</a></div>
       <p class="exp"><b>15+ years</b> building websites for businesses like yours.</p>
     </div>
     <div class="visual">
@@ -343,28 +347,26 @@ footer .wrap{align-items:center}
   </div>
 </section>
 
-<!-- REVIEWS: placeholders. Replace each card with a real client review (with permission), keeping the same layout. -->
-<section class="band">
+<!-- REVIEWS: real testimonials from Clay's past website clients. Bracketed text replaces the brand name, since these jobs predate Goodfolk. -->
+<section class="band" id="reviews">
   <div class="wrap">
     <h2 class="title">What business owners say</h2>
+    <p class="section-sub">From websites we've built over the years.</p>
     <div class="reviews">
       <article class="review">
-        <span class="sample">Sample</span>
         <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
-        <p>Placeholder for a client review about how easy the process was and how fast the site went live.</p>
-        <div class="who"><div class="avatar" aria-hidden="true">AB</div><div><b>Client name</b><span>Auto repair, Hermiston</span></div></div>
+        <p>&ldquo;We&rsquo;ve definitely had more customers finding us online since getting our new website, and [the team] was great to work with.&rdquo;</p>
+        <div class="who"><div><b>Carlos M.</b><span>Restaurant owner</span></div></div>
       </article>
       <article class="review">
-        <span class="sample">Sample</span>
         <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
-        <p>Placeholder for a client review about new calls and quote requests coming in from the site.</p>
-        <div class="who"><div class="avatar" aria-hidden="true">CD</div><div><b>Client name</b><span>Lawn care, Hermiston</span></div></div>
+        <p>&ldquo;I love how our website turned out, and [the team] made the whole process so easy that I wish I had done it sooner!&rdquo;</p>
+        <div class="who"><div><b>Jessica R.</b><span>Salon owner</span></div></div>
       </article>
       <article class="review">
-        <span class="sample">Sample</span>
         <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
-        <p>Placeholder for a client review about how quickly changes get made after a request.</p>
-        <div class="who"><div class="avatar" aria-hidden="true">EF</div><div><b>Client name</b><span>Cleaning service, Hermiston</span></div></div>
+        <p>&ldquo;[They] helped us replace our outdated website with something much more modern, and the whole process was straightforward from start to finish.&rdquo;</p>
+        <div class="who"><div><b>Dr. Michael T.</b><span>Family dental practice</span></div></div>
       </article>
     </div>
   </div>
