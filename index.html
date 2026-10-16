@@ -425,7 +425,11 @@ footer .legal a:hover{color:#fff}
           <div class="field"><label for="site">Current website or Facebook page <span>(optional)</span></label><input id="site" name="current_site" inputmode="url" placeholder="Paste a link"></div>
         </div>
         <p class="error" id="err" role="alert"></p>
-        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="sr" aria-hidden="true">
+        <input type="text" name="_honey" tabindex="-1" autocomplete="off" class="sr" aria-hidden="true">
+        <input type="hidden" name="_subject" value="New free preview request | Goodfolk">
+        <input type="hidden" name="_cc" value="clayton@goodfolkweb.com">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
         <button class="btn btn-pine" type="submit" id="go">Get my free preview</button>
         <p class="fine">We'll only use this to send your preview. No spam, ever.</p>
       </form>
@@ -563,7 +567,8 @@ footer .legal a:hover{color:#fff}
 <div class="mbar" id="mbar"><a class="btn btn-honey" href="#start">Get my free preview</a></div>
 
 <script>
-  var FORM_ENDPOINT = "";  // paste the Formspree URL here to receive submissions
+  // Submissions are emailed to Marissa (cc Clay) through FormSubmit. After activation, swap the address for FormSubmit's private alias.
+  var FORM_ENDPOINT = "https://formsubmit.co/ajax/marissa@goodfolkweb.com";
 
   document.getElementById("yr").textContent = new Date().getFullYear();
 
@@ -606,7 +611,7 @@ footer .legal a:hover{color:#fff}
     if(!FORM_ENDPOINT){ card.classList.add("sent"); return; }
     btn.disabled=true; btn.textContent="Sending...";
     fetch(FORM_ENDPOINT,{method:"POST",headers:{"Accept":"application/json"},body:new FormData(form)})
-      .then(function(r){ if(!r.ok) throw 0; card.classList.add("sent"); })
+      .then(function(r){ return r.json().then(function(d){ if(!r.ok || String(d.success)!=="true") throw 0; card.classList.add("sent"); }); })
       .catch(function(){ btn.disabled=false; btn.textContent="Get my free preview"; err.textContent="That didn't go through. Check your connection and try again."; });
   });
 </script>
