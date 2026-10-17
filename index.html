@@ -270,6 +270,11 @@ form .btn[disabled]{opacity:.6;cursor:default;transform:none}
 .price .amt small{font-family:var(--sans);font-size:17px;font-weight:600;color:var(--muted);letter-spacing:0;margin-left:2px}
 .price .what{margin-top:12px;color:var(--body);font-size:16px;line-height:1.5}
 .price.monthly{background:var(--pine);border-color:var(--pine)}
+.pricing{position:relative}
+.plus{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:2;width:40px;height:40px;border-radius:50%;background:var(--honey);color:var(--ink);font-family:var(--head);font-weight:800;font-size:24px;line-height:40px;text-align:center;box-shadow:0 0 0 5px var(--linen)}
+.total{margin-top:16px;font-size:16px;line-height:1.5;color:var(--body)}
+.total b{color:var(--ink)}
+@media(max-width:520px){.plus{position:static;transform:none;margin:-4px auto;justify-self:center}}
 .price .label{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
 .price.monthly .label{color:var(--honey)}
 .price.monthly .amt{color:var(--honey)}
@@ -482,12 +487,14 @@ footer .legal a:hover{color:#fff}
 <section class="sec linen" id="pricing">
   <div class="wrap included">
     <div data-r>
-      <h2>One simple price. Everything handled.</h2>
+      <h2>Simple pricing. Everything handled.</h2>
       <p class="sub">No tech skills needed. No logins to figure out. We build it and keep it running.</p>
       <div class="pricing">
-        <div class="price"><div class="label"><span class="promo-on"><span class="badge">Harvest Special</span></span><span class="promo-off">Website build</span></div><div class="amt"><span class="promo-on"><s class="was">$950</s>$499</span><span class="promo-off">$950</span></div><p class="what">One time. Design, writing, and launch.<span class="promo-on"> Ends Oct 31 or when 10 spots fill.</span></p></div>
-        <div class="price monthly"><div class="label">Care Plan</div><div class="amt">$29<small>/month</small></div><p class="what">Hosting, security, backups, and small updates. Cancel anytime. No hidden fees.</p></div>
+        <div class="price"><div class="label"><span class="promo-on"><span class="badge">Harvest Special</span></span><span class="promo-off">One-time website build</span></div><div class="amt"><span class="promo-on"><s class="was">$950</s>$499</span><span class="promo-off">$950</span></div><p class="what">One time. Design, writing, and launch.<span class="promo-on"> Ends Oct 31 or when 10 spots fill.</span></p></div>
+        <span class="plus" aria-hidden="true">+</span>
+        <div class="price monthly"><div class="label">Monthly Care Plan</div><div class="amt">$29<small>/month</small></div><p class="what">Hosting, security, backups, and small updates. Cancel anytime. No hidden fees.</p></div>
       </div>
+      <p class="total"><span class="promo-on">To start: <b>$499 one time</b>, then <b>$29/month</b> while your site is live. Cancel anytime.</span><span class="promo-off">To start: <b>$950 one time</b>, then <b>$29/month</b> while your site is live. Cancel anytime.</span></p>
     </div>
     <ul class="checklist" data-r style="--d:.12s">
       <li>A custom design for your business, not a cookie-cutter template</li>
