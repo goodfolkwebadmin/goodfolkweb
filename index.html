@@ -145,13 +145,13 @@ p{text-wrap:pretty}
 .hero .wrap{display:grid;grid-template-columns:1fr 1.04fr;gap:clamp(40px,5vw,72px);align-items:center}
 .lede{font-size:clamp(19px,1.6vw,21px);line-height:1.5;color:var(--body);margin-top:24px;max-width:31ch}
 .hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:16px 28px;margin-top:32px}
-.facts{margin-top:22px;display:grid;gap:12px;justify-items:start}
+.facts{margin-top:22px;display:grid;gap:12px;justify-items:start;max-width:470px}
 .price-line{font-size:16px;line-height:1.5;color:var(--muted)}
 .price-line b{color:var(--ink);font-weight:700}
 .price-line s{color:var(--muted);text-decoration-thickness:2px}
 .price-line .deal{background:linear-gradient(transparent 55%,var(--honey-soft) 55%);padding:0 3px}
 .price-line .ends{display:block;margin-top:4px;font-weight:600;color:#8f5d00}
-.offer{display:grid;gap:6px;margin-top:30px;justify-self:start;width:fit-content;text-decoration:none;color:var(--ink);background:var(--honey-soft);border:1px solid #f0d28f;border-radius:16px;padding:16px 20px 18px;min-width:min(100%,360px);transition:transform .2s var(--ease),box-shadow .2s}
+.offer{display:grid;gap:6px;margin-top:30px;justify-self:start;width:100%;max-width:470px;box-sizing:border-box;text-decoration:none;color:var(--ink);background:var(--honey-soft);border:1px solid #f0d28f;border-radius:16px;padding:16px 20px 18px;transition:transform .2s var(--ease),box-shadow .2s}
 .offer:hover{transform:translateY(-1px);box-shadow:0 12px 26px -18px rgba(160,105,0,.6)}
 .offer-k{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#8f5d00}
 .offer-p{display:flex;align-items:baseline;gap:12px;line-height:1}
@@ -168,7 +168,7 @@ p{text-wrap:pretty}
 .price .badge{display:inline-block;background:var(--honey);color:var(--ink);padding:5px 10px;border-radius:999px;letter-spacing:.06em}
 .rating{display:inline-flex;align-items:center;gap:10px;font-size:16px;font-weight:600;color:var(--ink);text-decoration:none}
 .stars{color:var(--honey);letter-spacing:2px;font-size:18px;line-height:1}
-.exp{display:inline-flex;align-items:baseline;gap:6px;padding:10px 16px;border-radius:var(--r-sm);background:var(--sage);color:var(--pine);font-size:16px;font-weight:500;line-height:1.4}
+.exp{display:flex;align-items:baseline;gap:6px;width:100%;max-width:470px;box-sizing:border-box;padding:10px 16px;border-radius:var(--r-sm);background:var(--sage);color:var(--pine);font-size:16px;font-weight:500;line-height:1.4}
 .exp b{font-family:var(--head);font-weight:800;letter-spacing:-.01em;white-space:nowrap}
 
 .visual{position:relative;padding:0 36px 56px 44px}
@@ -324,7 +324,9 @@ form .btn[disabled]{opacity:.6;cursor:default;transform:none}
 /* Closer */
 .closer{background:var(--honey);padding:clamp(64px,8vw,104px) 0}
 .closer .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:28px}
-.closer h2{color:var(--ink);max-width:16ch}
+.closer h2{color:var(--ink);max-width:18ch}
+.closer-sub{margin-top:14px;font-size:clamp(18px,1.6vw,20px);line-height:1.5;color:#3d2f12;font-weight:500;max-width:46ch}
+.closer-sub b{font-weight:800}
 
 /* Footer */
 footer{background:var(--pine-deep);color:#c6d4ca;padding:44px 0 48px;font-size:15px}
@@ -572,8 +574,11 @@ footer .legal a:hover{color:#fff}
 
 <section class="closer">
   <div class="wrap">
-    <h2 data-r>See what your website could look like.</h2>
-    <a class="btn btn-pine" href="#start" data-r style="--d:.1s">Get my free preview</a>
+    <div data-r>
+      <h2>Your customers are already searching. Be the one they find.</h2>
+      <p class="closer-sub"><span class="promo-on">See your new homepage free. Harvest Special <b>$499</b> through Oct 31, only 10 spots.</span><span class="promo-off">See your new homepage free. No payment to see it.</span></p>
+    </div>
+    <a class="btn btn-pine" href="#start" data-r style="--d:.1s">Claim my free preview</a>
   </div>
 </section>
 
