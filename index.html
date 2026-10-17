@@ -148,6 +148,14 @@ p{text-wrap:pretty}
 .facts{margin-top:30px;display:grid;gap:12px;justify-items:start}
 .price-line{font-size:16px;line-height:1.5;color:var(--muted)}
 .price-line b{color:var(--ink);font-weight:700}
+.price-line s{color:var(--muted);text-decoration-thickness:2px}
+.price-line .deal{background:linear-gradient(transparent 55%,var(--honey-soft) 55%);padding:0 3px}
+.price-line .ends{display:block;margin-top:4px;font-weight:600;color:#8f5d00}
+.promo-off{display:none}
+.promo-over .promo-on{display:none}
+.promo-over .promo-off{display:inline}
+.price .amt s.was{font-size:.5em;color:var(--muted);margin-right:10px;text-decoration-thickness:3px;vertical-align:.35em}
+.price .badge{display:inline-block;background:var(--honey);color:var(--ink);padding:5px 10px;border-radius:999px;letter-spacing:.06em}
 .rating{display:inline-flex;align-items:center;gap:10px;font-size:16px;font-weight:600;color:var(--ink);text-decoration:none}
 .stars{color:var(--honey);letter-spacing:2px;font-size:18px;line-height:1}
 .exp{display:inline-flex;align-items:baseline;gap:6px;padding:10px 16px;border-radius:var(--r-sm);background:var(--sage);color:var(--pine);font-size:16px;font-weight:500;line-height:1.4}
@@ -329,6 +337,7 @@ footer .legal a:hover{color:#fff}
   .strip .wrap{padding-top:28px;padding-bottom:28px}
 }
 
+
 /* Motion */
 @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
 @keyframes fade{from{opacity:0}to{opacity:1}}
@@ -343,7 +352,7 @@ footer .legal a:hover{color:#fff}
   .visual .tag i{animation:none}
 }
 </style>
-<script>document.documentElement.className+=" js"</script>
+<script>document.documentElement.className+=" js"+(new Date()>=new Date("2026-11-01T00:00:00-07:00")?" promo-over":"")</script>
 </head>
 <body>
 <!-- Photos: Unsplash free license (hero: photo-1628577478162-d4d00467c627; photo-1676018366904 inside the sample site). "Ridgeline Auto" is a fictional sample site. -->
@@ -376,7 +385,7 @@ footer .legal a:hover{color:#fff}
         <a class="link" href="#how">How it works</a>
       </div>
       <div class="facts" data-h style="--d:.24s">
-        <p class="price-line"><b>$950</b> one time, plus a <b>$29/month Care Plan</b>.</p>
+        <p class="price-line"><span class="promo-on"><s>$950</s> <b class="deal">$499</b> one time with the Harvest Special, plus a <b>$29/month Care Plan</b>. <span class="ends">Ends Oct 31 or when 10 spots fill.</span></span><span class="promo-off"><b>$950</b> one time, plus a <b>$29/month Care Plan</b>.</span></p>
         <a class="rating" href="#reviews"><span class="stars" aria-hidden="true">★★★★★</span>5-star reviews from past clients</a>
         <p class="exp"><b>15+ years</b> building websites for businesses like yours.</p>
       </div>
@@ -461,7 +470,7 @@ footer .legal a:hover{color:#fff}
       <h2>One simple price. Everything handled.</h2>
       <p class="sub">No tech skills needed. No logins to figure out. We build it and keep it running.</p>
       <div class="pricing">
-        <div class="price"><div class="label">Website build</div><div class="amt">$950</div><p class="what">One time. Design, writing, and launch.</p></div>
+        <div class="price"><div class="label"><span class="promo-on"><span class="badge">Harvest Special</span></span><span class="promo-off">Website build</span></div><div class="amt"><span class="promo-on"><s class="was">$950</s>$499</span><span class="promo-off">$950</span></div><p class="what">One time. Design, writing, and launch.<span class="promo-on"> Ends Oct 31 or when 10 spots fill.</span></p></div>
         <div class="price monthly"><div class="label">Care Plan</div><div class="amt">$29<small>/month</small></div><p class="what">Hosting, security, backups, and small updates. No hidden fees.</p></div>
       </div>
     </div>
@@ -567,6 +576,7 @@ footer .legal a:hover{color:#fff}
   </div>
 </footer>
 
+
 <div class="mbar" id="mbar"><a class="btn btn-honey" href="#start">Get my free preview</a></div>
 
 <script>
@@ -595,6 +605,10 @@ footer .legal a:hover{color:#fff}
 
   // Two-step form
   var form=document.getElementById("lead"), err=document.getElementById("err"), btn=document.getElementById("go"), card=form.closest(".card");
+
+  // Harvest Special: tag form leads with the offer until it ends (Oct 31, Pacific)
+  if (new Date() < new Date("2026-11-01T00:00:00-07:00")) { var offer=document.createElement("input"); offer.type="hidden"; offer.name="offer"; offer.value="Harvest Special $499 (through Oct 31)"; form.appendChild(offer); }
+
   var emailOk=function(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); };
   function step1(){
     err.textContent="";
