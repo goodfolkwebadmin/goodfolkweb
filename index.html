@@ -145,15 +145,25 @@ p{text-wrap:pretty}
 .hero .wrap{display:grid;grid-template-columns:1fr 1.04fr;gap:clamp(40px,5vw,72px);align-items:center}
 .lede{font-size:clamp(19px,1.6vw,21px);line-height:1.5;color:var(--body);margin-top:24px;max-width:31ch}
 .hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:16px 28px;margin-top:32px}
-.facts{margin-top:30px;display:grid;gap:12px;justify-items:start}
+.facts{margin-top:22px;display:grid;gap:12px;justify-items:start}
 .price-line{font-size:16px;line-height:1.5;color:var(--muted)}
 .price-line b{color:var(--ink);font-weight:700}
 .price-line s{color:var(--muted);text-decoration-thickness:2px}
 .price-line .deal{background:linear-gradient(transparent 55%,var(--honey-soft) 55%);padding:0 3px}
 .price-line .ends{display:block;margin-top:4px;font-weight:600;color:#8f5d00}
+.offer{display:grid;gap:6px;margin-top:30px;justify-self:start;width:fit-content;text-decoration:none;color:var(--ink);background:var(--honey-soft);border:1px solid #f0d28f;border-radius:16px;padding:16px 20px 18px;min-width:min(100%,360px);transition:transform .2s var(--ease),box-shadow .2s}
+.offer:hover{transform:translateY(-1px);box-shadow:0 12px 26px -18px rgba(160,105,0,.6)}
+.offer-k{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#8f5d00}
+.offer-p{display:flex;align-items:baseline;gap:12px;line-height:1}
+.offer-p s{font-family:var(--head);font-weight:700;font-size:22px;color:var(--muted);text-decoration-thickness:2px}
+.offer-p b{font-family:var(--head);font-weight:800;font-size:44px;letter-spacing:-.035em;color:var(--pine)}
+.offer-u{font-size:16px;font-weight:600;color:var(--body)}
+.offer-d{font-size:15px;font-weight:600;color:var(--body)}
+.promo-over .offer{display:none}
 .promo-off{display:none}
 .promo-over .promo-on{display:none}
 .promo-over .promo-off{display:inline}
+.promo-over p.promo-off{display:block}
 .price .amt s.was{font-size:.5em;color:var(--muted);margin-right:10px;text-decoration-thickness:3px;vertical-align:.35em}
 .price .badge{display:inline-block;background:var(--honey);color:var(--ink);padding:5px 10px;border-radius:999px;letter-spacing:.06em}
 .rating{display:inline-flex;align-items:center;gap:10px;font-size:16px;font-weight:600;color:var(--ink);text-decoration:none}
@@ -178,7 +188,7 @@ p{text-wrap:pretty}
 @media(max-width:940px){
   .hero .wrap{grid-template-columns:1fr;gap:0}
   .hero-copy{display:contents}
-  .hero h1{order:1}.lede{order:2}.hero-actions{order:3}.visual{order:4;margin-top:44px}.facts{order:5;margin-top:36px}
+  .hero h1{order:1}.lede{order:2}.offer{order:3;margin-top:26px;width:100%}.hero-actions{order:4}.visual{order:5;margin-top:44px}.facts{order:6;margin-top:36px}
   .visual{padding:0 22px 44px 22px;max-width:640px;width:100%}
   .laptop{width:66%}
   .phone{width:27%}
@@ -384,8 +394,13 @@ footer .legal a:hover{color:#fff}
         <a class="btn btn-honey" href="#start">Get my free preview</a>
         <a class="link" href="#how">How it works</a>
       </div>
+      <a class="offer promo-on" data-h style="--d:.2s" href="#pricing">
+          <span class="offer-k">Harvest Special · Ends Oct 31</span>
+          <span class="offer-p"><s>$950</s><b>$499</b><span class="offer-u">one time</span></span>
+          <span class="offer-d">Plus a $29/month Care Plan. Only 10 spots.</span>
+        </a>
       <div class="facts" data-h style="--d:.24s">
-        <p class="price-line"><span class="promo-on"><s>$950</s> <b class="deal">$499</b> one time with the Harvest Special, plus a <b>$29/month Care Plan</b>. <span class="ends">Ends Oct 31 or when 10 spots fill.</span></span><span class="promo-off"><b>$950</b> one time, plus a <b>$29/month Care Plan</b>.</span></p>
+        <p class="price-line promo-off"><b>$950</b> one time, plus a <b>$29/month Care Plan</b>.</p>
         <a class="rating" href="#reviews"><span class="stars" aria-hidden="true">★★★★★</span>5-star reviews from past clients</a>
         <p class="exp"><b>15+ years</b> building websites for businesses like yours.</p>
       </div>
