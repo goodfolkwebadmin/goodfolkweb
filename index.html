@@ -6,6 +6,9 @@
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-1REEJZN9F1"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-1REEJZN9F1');</script>
+<!-- Meta Pixel -->
+<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','1734792274670841');fbq('track','PageView');</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1734792274670841&ev=PageView&noscript=1" alt=""></noscript>
 <title>Goodfolk | Websites for Local Businesses, Live in 7 Days</title>
 <meta name="description" content="Goodfolk builds professional websites for local businesses, live in 7 days. A one-time build plus a $29/month Care Plan. See a free preview of your new homepage before you pay anything.">
 <link rel="canonical" href="https://goodfolkweb.com/">
@@ -667,7 +670,7 @@ footer .legal a:hover{color:#fff}
     if(missing.length){ err.textContent="Fill in the fields above so we can build your preview. Only the ones marked optional can be skipped."; document.getElementById(missing[0]).focus(); return; }
     if(!emailOk(document.getElementById("email").value.trim())){ err.textContent="Check your email address."; document.getElementById("email").focus(); return; }
     function toList(){ try{ var v=function(id){return document.getElementById(id).value.trim();}, m=new FormData(); m.append("fields[email]",v("email")); m.append("fields[name]",v("name")); m.append("fields[company]",v("biz")); m.append("fields[phone]",v("phone")); m.append("fields[city]",v("area")); m.append("ml-submit","1"); m.append("anticsrf","true"); fetch("https://assets.mailerlite.com/jsonp/2720490/forms/201592101408867702/subscribe",{method:"POST",body:m,keepalive:true}).catch(function(){}); }catch(x){} }
-    function done(){ toList(); if(window.gtag) gtag("event","generate_lead",{form_name:"free_preview"}); card.classList.add("sent"); var top=card.getBoundingClientRect().top+window.scrollY-110; window.scrollTo({top:top,behavior:"smooth"}); }
+    function done(){ toList(); if(window.gtag) gtag("event","generate_lead",{form_name:"free_preview"}); if(window.fbq) fbq("track","Lead"); card.classList.add("sent"); var top=card.getBoundingClientRect().top+window.scrollY-110; window.scrollTo({top:top,behavior:"smooth"}); }
     if(!FORM_ENDPOINT){ done(); return; }
     btn.disabled=true; btn.textContent="Sending...";
     fetch(FORM_ENDPOINT,{method:"POST",headers:{"Accept":"application/json"},body:new FormData(form)})
