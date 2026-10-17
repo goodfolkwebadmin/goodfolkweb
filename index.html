@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Goodfolk | Websites for Local Businesses, Live in 7 Days</title>
-<meta name="description" content="Goodfolk builds professional websites for local businesses. Live in 7 days, $950 one time plus a $29/month Care Plan. See a free preview of your new homepage before you pay anything.">
+<meta name="description" content="Goodfolk builds professional websites for local businesses, live in 7 days. A one-time build plus a $29/month Care Plan. See a free preview of your new homepage before you pay anything.">
 <link rel="canonical" href="https://goodfolkweb.com/">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="theme-color" content="#1f4b3b">
@@ -141,7 +141,12 @@ p{text-wrap:pretty}
 @media(max-width:420px){.head-cta{padding:12px 14px;font-size:14px}.brand{font-size:21px}}
 
 /* Hero */
-.hero{padding:clamp(28px,5vw,64px) 0 var(--sec)}
+.hero{position:relative;overflow:hidden;padding:clamp(28px,5vw,64px) 0 calc(var(--sec) + 70px);background:radial-gradient(60% 50% at 85% 20%,rgba(226,233,220,.55),transparent 70%),radial-gradient(45% 40% at 10% 90%,rgba(251,231,189,.35),transparent 70%)}
+.hero .wrap{position:relative;z-index:1}
+.street{position:absolute;left:0;right:0;bottom:0;height:110px;overflow:hidden;opacity:.22;pointer-events:none;z-index:0;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.street i{position:absolute;top:0;bottom:0;left:-851px;right:0;background:url(/img/main-street.svg) repeat-x 0 100%/851px 110px;animation:street 70s linear infinite;will-change:transform}
+@keyframes street{from{transform:translateX(0)}to{transform:translateX(851px)}}
+@media(max-width:700px){.street{height:80px}.street i{left:-619px;background-size:619px 80px}@keyframes street{from{transform:translateX(0)}to{transform:translateX(619px)}}}
 .hero .wrap{display:grid;grid-template-columns:1fr 1.04fr;gap:clamp(40px,5vw,72px);align-items:center}
 .lede{font-size:clamp(19px,1.6vw,21px);line-height:1.5;color:var(--body);margin-top:24px;max-width:31ch}
 .hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:16px 28px;margin-top:32px}
@@ -351,6 +356,9 @@ footer .legal a:hover{color:#fff}
   .mbar .btn{width:100%;padding:17px}
   footer{padding-bottom:110px}
   .hero-actions .btn{flex:1 1 100%}
+  .rating{min-height:44px}
+  footer .legal a{display:inline-block;padding:12px 0;margin:-12px 0}
+  footer .social a{padding:14px 18px}
   .hero-actions{gap:18px}
   .strip .wrap{padding-top:28px;padding-bottom:28px}
 }
@@ -368,6 +376,7 @@ footer .legal a:hover{color:#fff}
   html{scroll-behavior:auto}
   .js [data-r],.js .hero [data-h],.js .visual .laptop,.js .visual .phone{opacity:1;transform:none;animation:none;transition:none}
   .visual .tag i{animation:none}
+  .street i{animation:none}
 }
 </style>
 <script>document.documentElement.className+=" js"+(new Date()>=new Date("2026-11-01T00:00:00-07:00")?" promo-over":"")</script>
@@ -394,6 +403,7 @@ footer .legal a:hover{color:#fff}
 <main id="top">
 
 <section class="hero">
+  <div class="street" aria-hidden="true"><i></i></div>
   <div class="wrap">
     <div class="hero-copy">
       <h1 data-h>Good sites<br><span class="nw">for good folk.</span></h1>
@@ -433,7 +443,7 @@ footer .legal a:hover{color:#fff}
   <div class="wrap">
     <div data-r>
       <h2>See your new website first. Free.</h2>
-      <p class="sub">Tell us about your business. We'll design your homepage and text you a link.</p>
+      <p class="sub">Tell us about your business. We’ll design your homepage and text you a link.</p>
       <ul class="assure">
         <li>No payment to see it</li>
         <li>Takes about two minutes</li>
@@ -465,11 +475,11 @@ footer .legal a:hover{color:#fff}
         <input type="hidden" name="_template" value="table">
         <input type="hidden" name="_captcha" value="false">
         <button class="btn btn-pine" type="submit" id="go">Get my free preview</button>
-        <p class="fine">We'll only use this to send your preview. No spam, ever.</p>
+        <p class="fine">We’ll only use this to send your preview. No spam, ever.</p>
       </form>
       <div class="done" role="status" aria-live="polite">
         <div class="check"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1f4b3b" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5.5 12.5l4.2 4.2 8.8-9.4"/></svg></div>
-        <h3>You're all set.</h3>
+        <h3>You’re all set.</h3>
         <p>Our client care manager will reach out within the next few hours to grab a few details and get your preview moving. If you love it, we launch it. If not, you owe nothing.</p>
       </div>
     </div>
@@ -480,7 +490,7 @@ footer .legal a:hover{color:#fff}
   <div class="wrap">
     <div class="head-block" data-r><h2>How it works</h2></div>
     <ol class="steps">
-      <li data-r><h3>Tell us about your business</h3><p>The short form above. That's all we need to start.</p></li>
+      <li data-r><h3>Tell us about your business</h3><p>The short form above. That’s all we need to start.</p></li>
       <li data-r style="--d:.1s"><h3>See your free preview</h3><p>We design your homepage and text you a link to look at on your phone.</p></li>
       <li data-r style="--d:.2s"><h3>Say the word</h3><p>Like it? Your full site is live within 7 days. We handle all of it.</p></li>
     </ol>
@@ -519,8 +529,8 @@ footer .legal a:hover{color:#fff}
     </div>
     <div class="note" data-r style="--d:.12s">
       <ul>
-        <li><div><b>15+ years of experience</b><span>Seasoned website builders, not a first-time side hustle.</span></div></li>
-        <li><div><b>A real person, not a call center</b><span>You'll work with us directly, start to finish.</span></div></li>
+        <li><div><b>Seasoned pros</b><span>Experienced website builders, not a first-time side hustle.</span></div></li>
+        <li><div><b>A real person, not a call center</b><span>You’ll work with us directly, start to finish.</span></div></li>
         <li><div><b>Plain talk</b><span>No tech jargon. No surprise fees.</span></div></li>
         <li><div><b>We stick around</b><span>Your site is looked after every month, not handed off and forgotten.</span></div></li>
       </ul>
@@ -533,7 +543,7 @@ footer .legal a:hover{color:#fff}
   <div class="wrap">
     <div class="head-block" data-r>
       <h2>What business owners say</h2>
-      <p class="sub">From websites we've built over the years.</p>
+      <p class="sub">From websites we’ve built over the years.</p>
     </div>
     <div class="reviews">
       <figure class="review" data-r>
@@ -559,13 +569,13 @@ footer .legal a:hover{color:#fff}
   <div class="wrap faq-wrap">
     <div class="head-block" data-r>
       <h2>Questions</h2>
-      <p class="sub">Straight answers. If yours isn't here, email us at <a href="mailto:hello@goodfolkweb.com" style="color:var(--pine);font-weight:700">hello@goodfolkweb.com</a>.</p>
+      <p class="sub">Straight answers. If yours isn’t here, email us at <a href="mailto:hello@goodfolkweb.com" style="color:var(--pine);font-weight:700">hello@goodfolkweb.com</a>.</p>
     </div>
     <div class="faq" data-r style="--d:.1s">
       <details><summary>Do I have to pay for the preview?</summary><p>No. The preview is free. You only pay if you like it and want it launched.</p></details>
-      <details><summary>I'm not a computer person. Is that a problem?</summary><p>Not at all. That's why we're here. We do the building, the writing, and the setup. You just tell us about your business.</p></details>
-      <details><summary>What do I need to give you?</summary><p>Just the short form to start. Before launch we'll ask for your logo and a few photos. If you don't have those, we'll work with what you've got.</p></details>
-      <details><summary>What if I already have a website?</summary><p>We'll build you a better one. Put the link in the form and we'll use it as a starting point.</p></details>
+      <details><summary>I’m not a computer person. Is that a problem?</summary><p>Not at all. That’s why we’re here. We do the building, the writing, and the setup. You just tell us about your business.</p></details>
+      <details><summary>What do I need to give you?</summary><p>Just the short form to start. Before launch we’ll ask for your logo and a few photos. If you don’t have those, we’ll work with what you’ve got.</p></details>
+      <details><summary>What if I already have a website?</summary><p>We’ll build you a better one. Put the link in the form and we’ll use it as a starting point.</p></details>
       <details><summary>Am I locked into a contract?</summary><p>No. The Care Plan is month to month, and you can cancel anytime. It keeps your site hosted, secure, and up to date, so your site stays live while the plan is active.</p></details>
       <details><summary>Can I make changes later?</summary><p>Yes. Small updates are included in your Care Plan. Send us a request and we take care of it.</p></details>
     </div>
@@ -575,7 +585,7 @@ footer .legal a:hover{color:#fff}
 <section class="closer">
   <div class="wrap">
     <div data-r>
-      <h2>Your customers are already searching. Be the one they find.</h2>
+      <h2>Your next customer is already searching. Be the one they find.</h2>
       <p class="closer-sub"><span class="promo-on">See your new homepage free. Harvest Special <b>$499</b> through Oct 31, only 10 spots.</span><span class="promo-off">See your new homepage free. No payment to see it.</span></p>
     </div>
     <a class="btn btn-pine" href="#start" data-r style="--d:.1s">Claim my free preview</a>
