@@ -611,10 +611,11 @@ footer .legal a:hover{color:#fff}
     var missing=["biz","name","phone","email","type","area","services"].filter(function(id){return !document.getElementById(id).value.trim();});
     if(missing.length){ err.textContent="Fill in the fields above so we can build your preview. Only the ones marked optional can be skipped."; document.getElementById(missing[0]).focus(); return; }
     if(!emailOk(document.getElementById("email").value.trim())){ err.textContent="Check your email address."; document.getElementById("email").focus(); return; }
-    if(!FORM_ENDPOINT){ card.classList.add("sent"); return; }
+    function done(){ card.classList.add("sent"); var top=card.getBoundingClientRect().top+window.scrollY-110; window.scrollTo({top:top,behavior:"smooth"}); }
+    if(!FORM_ENDPOINT){ done(); return; }
     btn.disabled=true; btn.textContent="Sending...";
     fetch(FORM_ENDPOINT,{method:"POST",headers:{"Accept":"application/json"},body:new FormData(form)})
-      .then(function(r){ return r.json().then(function(d){ if(!r.ok || String(d.success)!=="true") throw 0; card.classList.add("sent"); }); })
+      .then(function(r){ return r.json().then(function(d){ if(!r.ok || String(d.success)!=="true") throw 0; done(); }); })
       .catch(function(){ btn.disabled=false; btn.textContent="Get my free preview"; err.textContent="That didn't go through. Check your connection and try again."; });
   });
 </script>
