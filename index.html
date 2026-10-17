@@ -478,7 +478,7 @@ footer .legal a:hover{color:#fff}
         <input type="hidden" name="_template" value="table">
         <input type="hidden" name="_captcha" value="false">
         <button class="btn btn-pine" type="submit" id="go">Get my free preview</button>
-        <p class="fine">We’ll only use this to send your preview. No spam, ever.</p>
+        <p class="fine">We’ll send your preview, plus the occasional Goodfolk deal. Unsubscribe anytime. No spam, ever.</p>
       </form>
       <div class="done" role="status" aria-live="polite">
         <div class="check"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1f4b3b" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5.5 12.5l4.2 4.2 8.8-9.4"/></svg></div>
@@ -666,7 +666,8 @@ footer .legal a:hover{color:#fff}
     var missing=["biz","name","phone","email","type","area","services"].filter(function(id){return !document.getElementById(id).value.trim();});
     if(missing.length){ err.textContent="Fill in the fields above so we can build your preview. Only the ones marked optional can be skipped."; document.getElementById(missing[0]).focus(); return; }
     if(!emailOk(document.getElementById("email").value.trim())){ err.textContent="Check your email address."; document.getElementById("email").focus(); return; }
-    function done(){ if(window.gtag) gtag("event","generate_lead",{form_name:"free_preview"}); card.classList.add("sent"); var top=card.getBoundingClientRect().top+window.scrollY-110; window.scrollTo({top:top,behavior:"smooth"}); }
+    function toList(){ try{ var v=function(id){return document.getElementById(id).value.trim();}, m=new FormData(); m.append("fields[email]",v("email")); m.append("fields[name]",v("name")); m.append("fields[company]",v("biz")); m.append("fields[phone]",v("phone")); m.append("fields[city]",v("area")); m.append("ml-submit","1"); m.append("anticsrf","true"); fetch("https://assets.mailerlite.com/jsonp/2720490/forms/201592101408867702/subscribe",{method:"POST",body:m,keepalive:true}).catch(function(){}); }catch(x){} }
+    function done(){ toList(); if(window.gtag) gtag("event","generate_lead",{form_name:"free_preview"}); card.classList.add("sent"); var top=card.getBoundingClientRect().top+window.scrollY-110; window.scrollTo({top:top,behavior:"smooth"}); }
     if(!FORM_ENDPOINT){ done(); return; }
     btn.disabled=true; btn.textContent="Sending...";
     fetch(FORM_ENDPOINT,{method:"POST",headers:{"Accept":"application/json"},body:new FormData(form)})
