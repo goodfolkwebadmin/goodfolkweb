@@ -3,6 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1REEJZN9F1"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-1REEJZN9F1');</script>
 <title>Goodfolk | Websites for Local Businesses, Live in 7 Days</title>
 <meta name="description" content="Goodfolk builds professional websites for local businesses, live in 7 days. A one-time build plus a $29/month Care Plan. See a free preview of your new homepage before you pay anything.">
 <link rel="canonical" href="https://goodfolkweb.com/">
@@ -663,7 +666,7 @@ footer .legal a:hover{color:#fff}
     var missing=["biz","name","phone","email","type","area","services"].filter(function(id){return !document.getElementById(id).value.trim();});
     if(missing.length){ err.textContent="Fill in the fields above so we can build your preview. Only the ones marked optional can be skipped."; document.getElementById(missing[0]).focus(); return; }
     if(!emailOk(document.getElementById("email").value.trim())){ err.textContent="Check your email address."; document.getElementById("email").focus(); return; }
-    function done(){ card.classList.add("sent"); var top=card.getBoundingClientRect().top+window.scrollY-110; window.scrollTo({top:top,behavior:"smooth"}); }
+    function done(){ if(window.gtag) gtag("event","generate_lead",{form_name:"free_preview"}); card.classList.add("sent"); var top=card.getBoundingClientRect().top+window.scrollY-110; window.scrollTo({top:top,behavior:"smooth"}); }
     if(!FORM_ENDPOINT){ done(); return; }
     btn.disabled=true; btn.textContent="Sending...";
     fetch(FORM_ENDPOINT,{method:"POST",headers:{"Accept":"application/json"},body:new FormData(form)})
