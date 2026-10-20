@@ -256,12 +256,7 @@ form{display:grid;gap:16px}
 .field input::placeholder,.field textarea::placeholder{color:#a99d8f}
 .field input:focus,.field textarea:focus{outline:none;border-color:var(--pine);box-shadow:0 0 0 3px rgba(31,75,59,.16)}
 .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.more{display:grid;gap:16px;overflow:hidden;max-height:0;opacity:0;margin-top:-16px;transition:max-height .55s var(--ease),opacity .35s ease,margin-top .3s}
-.card.open .more{max-height:1200px;opacity:1;margin-top:0}
 form .btn{width:100%}
-#go{display:none}
-.card.open #go{display:inline-flex}
-.card.open #next{display:none}
 form .btn[disabled]{opacity:.6;cursor:default;transform:none}
 .fine{font-size:14px;line-height:1.5;color:var(--muted);text-align:center}
 .error{font-size:15px;font-weight:600;color:#b42318}
@@ -457,32 +452,24 @@ footer .legal a:hover{color:#fff}
   <div class="wrap">
     <div data-r>
       <h2>See your new website first. Free.</h2>
-      <p class="sub">Tell us about your business. We’ll design your homepage and text you a link.</p>
+      <p class="sub">Tell us about your business. We’ll design your preview website and send you a link.</p>
       <ul class="assure">
         <li>No payment to see it</li>
-        <li>Takes about two minutes</li>
+        <li>Takes about 30 seconds</li>
         <li>Pay only if you love it</li>
       </ul>
     </div>
     <div class="card" data-r style="--d:.1s">
-      <div class="steps-label"><span id="steptxt">Step 1 of 2</span><span class="bar"><i></i></span></div>
       <form id="lead" novalidate>
-        <div class="field"><label for="biz">Business name</label><input id="biz" name="business" autocomplete="organization" required></div>
+        <div class="row">
+          <div class="field"><label for="biz">Business name</label><input id="biz" name="business" autocomplete="organization" required></div>
+          <div class="field"><label for="type">Type of business</label><input id="type" name="business_type" placeholder="Auto repair, salon..." required></div>
+        </div>
         <div class="row">
           <div class="field"><label for="name">Your name</label><input id="name" name="name" autocomplete="name" required></div>
-          <div class="field"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required></div>
+          <div class="field"><label for="contact">Phone or email</label><input id="contact" name="contact" autocomplete="tel" placeholder="Where we send your preview" required></div>
         </div>
-        <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" inputmode="email" required></div>
-        <button class="btn btn-pine" type="button" id="next">Next: tell us about your business</button>
-        <div class="more" id="more">
-          <div class="row">
-            <div class="field"><label for="type">Type of business</label><input id="type" name="business_type" placeholder="Auto repair, salon..." required></div>
-            <div class="field"><label for="area">Town or area you serve</label><input id="area" name="service_area" placeholder="Hermiston, Umatilla..." required></div>
-          </div>
-          <div class="field"><label for="services">Your main services</label><textarea id="services" name="services" rows="3" placeholder="Brakes, oil changes, diagnostics, tires..." required></textarea></div>
-          <div class="field"><label for="about">What should customers know about you? <span>(optional)</span></label><textarea id="about" name="what_sets_you_apart" rows="3" placeholder="Family owned since 2004, free estimates, same-day service..."></textarea></div>
-          <div class="field"><label for="site">Current website or Facebook page <span>(optional)</span></label><input id="site" name="current_site" inputmode="url" placeholder="Paste a link"></div>
-        </div>
+        <div class="field"><label for="site">Facebook page or current website <span>(optional)</span></label><input id="site" name="current_site" inputmode="url" placeholder="Paste a link"></div>
         <p class="error" id="err" role="alert"></p>
         <input type="text" name="_honey" tabindex="-1" autocomplete="off" class="sr" aria-hidden="true">
         <input type="hidden" name="_subject" value="New free preview request | Goodfolk">
@@ -663,22 +650,16 @@ footer .legal a:hover{color:#fff}
   if (new Date() < new Date("2026-11-01T00:00:00-07:00")) { var offer=document.createElement("input"); offer.type="hidden"; offer.name="offer"; offer.value="Harvest Special $499 (through Oct 31)"; form.appendChild(offer); }
 
   var emailOk=function(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); };
-  function step1(){
-    err.textContent="";
-    var m=["biz","name","phone","email"].filter(function(id){return !document.getElementById(id).value.trim();});
-    if(m.length){ err.textContent="Add your business name, your name, phone, and email to keep going."; document.getElementById(m[0]).focus(); return; }
-    if(!emailOk(document.getElementById("email").value.trim())){ err.textContent="Check your email address."; document.getElementById("email").focus(); return; }
-    card.classList.add("open"); document.getElementById("steptxt").textContent="Step 2 of 2";
-    setTimeout(function(){ document.getElementById("type").focus({preventScroll:true}); },350);
-  }
-  document.getElementById("next").addEventListener("click",step1);
+  var phoneOk=function(v){ return v.replace(/\D/g,"").length>=10; };
+  function setHidden(n,v){ var i=form.querySelector('input[type=hidden][name="'+n+'"]'); if(!i){ i=document.createElement("input"); i.type="hidden"; i.name=n; form.appendChild(i); } i.value=v; }
   form.addEventListener("submit",function(e){
     e.preventDefault(); err.textContent="";
-    if(!card.classList.contains("open")){ step1(); return; }
-    var missing=["biz","name","phone","email","type","area","services"].filter(function(id){return !document.getElementById(id).value.trim();});
-    if(missing.length){ err.textContent="Fill in the fields above so we can build your preview. Only the ones marked optional can be skipped."; document.getElementById(missing[0]).focus(); return; }
-    if(!emailOk(document.getElementById("email").value.trim())){ err.textContent="Check your email address."; document.getElementById("email").focus(); return; }
-    function toList(){ try{ var v=function(id){return document.getElementById(id).value.trim();}, m=new FormData(); m.append("fields[email]",v("email")); m.append("fields[name]",v("name")); m.append("fields[company]",v("biz")); m.append("fields[phone]",v("phone")); m.append("fields[city]",v("area")); m.append("ml-submit","1"); m.append("anticsrf","true"); fetch("https://assets.mailerlite.com/jsonp/2720490/forms/201592101408867702/subscribe",{method:"POST",body:m,keepalive:true}).catch(function(){}); }catch(x){} }
+    var missing=["biz","type","name","contact"].filter(function(id){return !document.getElementById(id).value.trim();});
+    if(missing.length){ err.textContent="Fill in the four fields above so we can build your preview."; document.getElementById(missing[0]).focus(); return; }
+    var c=document.getElementById("contact").value.trim(), isEmail=c.indexOf("@")>-1;
+    if(isEmail ? !emailOk(c) : !phoneOk(c)){ err.textContent="Check your phone number or email."; document.getElementById("contact").focus(); return; }
+    setHidden("email",isEmail?c:""); setHidden("phone",isEmail?"":c); if(isEmail) setHidden("_replyto",c);
+    function toList(){ if(!isEmail) return; try{ var v=function(id){return document.getElementById(id).value.trim();}, m=new FormData(); m.append("fields[email]",c); m.append("fields[name]",v("name")); m.append("fields[company]",v("biz")); m.append("ml-submit","1"); m.append("anticsrf","true"); fetch("https://assets.mailerlite.com/jsonp/2720490/forms/201592101408867702/subscribe",{method:"POST",body:m,keepalive:true}).catch(function(){}); }catch(x){} }
     function done(){ toList(); if(window.gtag) gtag("event","generate_lead",{form_name:"free_preview"}); if(window.fbq) fbq("track","Lead"); card.classList.add("sent"); var top=card.getBoundingClientRect().top+window.scrollY-110; window.scrollTo({top:top,behavior:"smooth"}); }
     if(!FORM_ENDPOINT){ done(); return; }
     btn.disabled=true; btn.textContent="Sending...";
