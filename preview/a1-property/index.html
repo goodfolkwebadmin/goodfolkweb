@@ -162,6 +162,8 @@ form h3{font-family:var(--h);font-size:22px;color:var(--river)}
 .row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px}
 .f input,.f textarea,.f select{width:100%;min-width:0}
 form .btn{width:100%;padding:16px}
+.pv-note{background:var(--gold-l);border:1px solid var(--gold);color:var(--ink);border-radius:12px;padding:14px 16px;font-size:14.5px;line-height:1.5}
+.pv-note b{display:block;margin-bottom:2px}
 form .fine{font-size:13px;color:var(--muted);text-align:center}
 
 footer{background:#0a1e31;color:rgba(255,255,255,.6);font-size:14px;padding:44px 0 30px}
@@ -351,7 +353,7 @@ footer .bot{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.1);padding-t
         <div><i><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></i><span><small>Office hours</small><b>Mon to Fri, 8am to 12pm and 1pm to 4pm</b></span></div>
       </div>
     </div>
-    <form class="r" onsubmit="event.preventDefault();this.querySelector('button').textContent='Preview only: this form goes live at launch';">
+    <form class="r" id="note">
       <h3>Send us a note</h3>
       <div class="seg">
         <input type="radio" name="who" id="w1" checked><label for="w1">I own a property</label>
@@ -368,6 +370,7 @@ footer .bot{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.1);padding-t
       <label class="f">Anything we should know?<textarea rows="3" placeholder="Address, current situation, questions..."></textarea></label>
       <button class="btn btn-gold" type="submit">Send my note</button>
       <p class="fine">We'll only use this to get back to you.</p>
+      <div class="pv-note" role="status" hidden><b>This is a preview.</b> Messages aren't sent yet. Once you move forward, this form will deliver every inquiry straight to your inbox.</div>
     </form>
   </div>
 </section>
@@ -391,6 +394,7 @@ footer .bot{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.1);padding-t
 
 <script>
 if("IntersectionObserver" in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}});},{threshold:.12});document.querySelectorAll(".r").forEach(function(el){io.observe(el);});}else{document.querySelectorAll(".r").forEach(function(el){el.classList.add("in");});}
+document.getElementById("note").addEventListener("submit",function(e){e.preventDefault();var n=this.querySelector(".pv-note");n.hidden=false;n.scrollIntoView({behavior:"smooth",block:"nearest"});});
 </script>
 </body>
 </html>
