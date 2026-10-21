@@ -110,7 +110,10 @@ section.sec{padding:clamp(64px,8.5vw,112px) 0}
 .fact{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 18px}
 .fact small{display:block;font-family:var(--head);font-weight:700;font-size:15px;letter-spacing:.1em;text-transform:uppercase;color:var(--orange)}
 .fact p{margin-top:4px;font-weight:600;line-height:1.45}
-.softball .btn{margin-top:24px}
+.acts2{display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px;margin-top:24px}
+.more{display:inline-block;font-weight:700;color:var(--red);text-decoration:none;padding:10px 0;border-bottom:2px solid var(--sun)}
+.card .more{margin-top:auto;align-self:flex-start;padding-top:16px}
+.card ul{margin-bottom:6px}
 @media(max-width:860px){.softball{grid-template-columns:1fr}.softball .ph{aspect-ratio:4/3}}
 @media(max-width:440px){.facts{grid-template-columns:1fr}}
 
@@ -151,6 +154,7 @@ form .btn{width:100%}
 footer{background:var(--navy-d);color:#aeb5d4;font-size:14px;padding:40px 0 44px}
 footer .top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:18px}
 footer .brand span{color:#fff}
+footer .soc{display:flex;flex-wrap:wrap;gap:8px}
 footer .soc a{display:inline-block;color:#fff;text-decoration:none;font-weight:600;border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:11px 18px}
 footer .bot{margin-top:26px;padding-top:20px;border-top:1px solid rgba(255,255,255,.12);display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
 footer .bot a{color:#cfd5ee}
@@ -213,6 +217,7 @@ footer .bot a{color:#cfd5ee}
         <h3>Recovery stories</h3>
         <p>Real people sharing their journey through addiction and recovery, so young people know there is a way through.</p>
         <ul><li>Prevention and recovery videos</li><li>Podcast</li></ul>
+        <a class="more" href="https://www.youtube.com/@CreatingConquerors365" target="_blank" rel="noopener">Watch on YouTube &rarr;</a>
       </div>
       <div class="card">
         <div class="ic" style="background:#dfe3f6"><svg viewBox="0 0 24 24" fill="none" stroke="#1b2a6b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.6-7 10-7 10z"/></svg></div>
@@ -224,7 +229,7 @@ footer .bot a{color:#cfd5ee}
         <div class="ic" style="background:#fff0bf"><svg viewBox="0 0 24 24" fill="none" stroke="#b07a00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19c.6-3.2 2.8-5 5.5-5s4.9 1.8 5.5 5"/><path d="M16 5.5a3 3 0 0 1 0 5.6M18 14.3c1.5.7 2.4 2.2 2.6 4.7"/></svg></div>
         <h3>Training and support</h3>
         <p>Equipping parents, professionals, and community members to step in and help.</p>
-        <ul><li>ASIST suicide intervention training</li><li>Triple P Positive Parenting</li><li>Clinical supervision (CADC, CRM)</li></ul>
+        <ul><li>ASIST suicide intervention training</li><li>Triple P Positive Parenting</li><li>Clinical supervision (CADC, CRM)</li><li>Business development and coaching for organizations</li></ul>
       </div>
       <div class="card">
         <div class="ic" style="background:#fde3c8"><svg viewBox="0 0 24 24" fill="none" stroke="#f0841c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M7 5.5c1.8 2 2.6 4.1 2.6 6.5S8.8 16.5 7 18.5M17 5.5c-1.8 2-2.6 4.1-2.6 6.5s.8 4.5 2.6 6.5"/></svg></div>
@@ -249,7 +254,7 @@ footer .bot a{color:#cfd5ee}
         <div class="fact"><small>Programs</small><p>Pitching and hitting lessons<br>Batting cage rentals</p></div>
         <div class="fact"><small>Location</small><p>43803 McKay Drive<br>Pendleton, OR 97801</p></div>
       </div>
-      <a class="btn btn-navy" href="sms:+15415611613">Text 541-561-1613 to book</a>
+      <div class="acts2"><a class="btn btn-navy" href="sms:+15415611613">Text 541-561-1613 to book</a><a class="more" href="https://www.creatingconquerors.com/_files/ugd/1d0c46_87661e3c057a42699be182fad69ce639.docx?dn=NAFA%20Scholarship%20Application.docx" target="_blank" rel="noopener">Download the NAFA scholarship application &rarr;</a></div>
     </div>
   </div>
 </section>
@@ -272,7 +277,7 @@ footer .bot a{color:#cfd5ee}
   <div class="wrap">
     <h2>Help us reach the next young person in time.</h2>
     <p>Your gift funds prevention videos, suicide intervention training, and programs that keep kids in our community connected and safe.</p>
-    <div class="acts"><a class="btn btn-sun" href="#donate" data-pv>Donate online</a><a class="btn btn-ghost" href="tel:+15415611613">Give by phone</a></div>
+    <div class="acts"><a class="btn btn-sun" href="#donate" data-pv>Donate online</a><a class="btn btn-ghost" href="tel:+15415611613">Give by phone</a><a class="btn btn-ghost" href="https://www.creatingconquerors.com/category/all-products" target="_blank" rel="noopener">Shop our gear</a></div>
     <p class="pv-note" id="pvd" role="status" hidden style="max-width:520px;margin:18px auto 0;color:var(--ink)"><b>This is a preview.</b> Once you move forward, this button will connect to your PayPal or online giving page.</p>
     <p class="ein">Creating Conquerors is a registered charity · EIN 47-1096960</p>
   </div>
@@ -307,7 +312,7 @@ footer .bot a{color:#cfd5ee}
   <div class="wrap">
     <div class="top">
       <a class="brand" href="#top"><img src="img/logo.png" width="513" height="520" alt=""><span>Creating<br>Conquerors</span></a>
-      <div class="soc"><a href="https://www.facebook.com/creatingconquerors" target="_blank" rel="noopener">Facebook</a></div>
+      <div class="soc"><a href="https://www.facebook.com/creatingconquerors" target="_blank" rel="noopener">Facebook</a> <a href="https://www.instagram.com/creatingconquerors" target="_blank" rel="noopener">Instagram</a> <a href="https://www.tiktok.com/@creatingconquerors4u" target="_blank" rel="noopener">TikTok</a> <a href="https://www.youtube.com/@CreatingConquerors365" target="_blank" rel="noopener">YouTube</a></div>
     </div>
     <div class="bot">
       <span>© Creating Conquerors · Pendleton, Oregon · EIN 47-1096960</span>
