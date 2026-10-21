@@ -186,12 +186,15 @@ p{text-wrap:pretty}
 .strip p.small{color:var(--body);font-size:17px;line-height:1.55;max-width:38ch}
 
 /* Church photos */
-.gallery{display:grid;grid-template-columns:1.5fr 1fr;grid-template-rows:1fr 1fr;gap:16px;margin-top:var(--gap);height:clamp(420px,46vw,600px)}
-.gallery figure{position:relative;border-radius:var(--r-lg);overflow:hidden;background:#3a332d;box-shadow:var(--shadow)}
-.gallery figure:first-child{grid-row:1/3}
+.gallery{display:grid;grid-template-columns:1.35fr 1fr 1fr;grid-template-rows:1fr 1fr;gap:16px;margin-top:var(--gap);height:clamp(440px,44vw,600px)}
+.gallery figure{position:relative;border-radius:var(--r-lg);overflow:hidden;background:var(--pine);box-shadow:var(--shadow);min-height:0}
+.gallery .g-a{grid-row:1/3}
+.gallery .g-b{grid-column:2/4}
 .gallery img{width:100%;height:100%;object-fit:cover}
+.gallery .g-a img{object-position:30% 50%}
+.gallery .g-d img{object-position:50% 30%}
 .gallery figcaption{position:absolute;left:14px;bottom:14px;background:rgba(255,253,249,.94);color:var(--pine);font-size:14px;font-weight:700;line-height:1;padding:10px 14px;border-radius:999px}
-@media(max-width:700px){.gallery{grid-template-columns:1fr 1fr;grid-template-rows:auto auto;height:auto}.gallery figure:first-child{grid-column:1/3;grid-row:auto;aspect-ratio:4/3}.gallery figure{aspect-ratio:1}}
+@media(max-width:760px){.gallery{grid-template-columns:1fr 1fr;grid-template-rows:none;height:auto;gap:12px}.gallery .g-a,.gallery .g-b{grid-column:1/3;grid-row:auto;aspect-ratio:16/10}.gallery .g-c,.gallery .g-d{aspect-ratio:4/5}}
 
 /* Sections */
 .sec{padding:var(--sec) 0}
@@ -292,11 +295,12 @@ form .btn[disabled]{opacity:.6;cursor:default;transform:none}
 
 /* FAQ */
 .faq-wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(32px,6vw,96px);align-items:start}
-.faq{border-top:1px solid var(--rule)}
+.faq{border-top:1px solid #c9d6c1}
+.sage .faq details{border-bottom-color:#c9d6c1}
 .faq details{border-bottom:1px solid var(--rule)}
 .faq summary{cursor:pointer;font-weight:700;font-size:19px;line-height:1.4;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 0}
 .faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"";flex:none;width:28px;height:28px;border-radius:50%;background:var(--sage) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231f4b3b' stroke-width='2.6' stroke-linecap='round'%3E%3Cpath d='M12 6v12M6 12h12'/%3E%3C/svg%3E") center/14px no-repeat;transition:transform .3s var(--ease)}
+.faq summary::after{content:"";flex:none;width:28px;height:28px;border-radius:50%;background:var(--card) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231f4b3b' stroke-width='2.6' stroke-linecap='round'%3E%3Cpath d='M12 6v12M6 12h12'/%3E%3C/svg%3E") center/14px no-repeat;transition:transform .3s var(--ease)}
 .faq details[open] summary::after{transform:rotate(45deg)}
 .faq summary:hover{color:var(--pine)}
 .faq p{color:var(--body);padding:0 44px 24px 0;max-width:62ch;margin-top:-6px}
@@ -322,6 +326,8 @@ footer .tag-line{margin-top:6px;color:#a9bcb0}
 footer .legal{margin-top:32px;padding-top:22px;border-top:1px solid rgba(255,255,255,.12);display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;color:#8fa699;font-size:14px}
 footer .legal a{text-decoration:none}
 footer .legal a:hover{color:#fff}
+
+@media(max-width:900px){.hero-actions .link{display:inline-block;padding:12px 0 6px}footer .legal a{display:inline-block;padding:12px 0;margin:-12px 0}}
 
 /* Mobile CTA bar */
 .mbar{display:none}
@@ -358,7 +364,7 @@ footer .legal a:hover{color:#fff}
 <script>document.documentElement.className+=" js"+(new Date()>=new Date("2026-11-01T00:00:00-07:00")?" promo-over":"")</script>
 </head>
 <body>
-<!-- Photos: Unsplash free license (hero: photo-1651514645933 by Small Group Network; sample site: photo-1622598453695 by Terren Hurst, photo-1577975039920 by Nicolas Lobos; gallery: photo-1622598379135 by Terren Hurst, photo-1651514644627 by Small Group Network, photo-1577975039920 by Nicolas Lobos). "Riverstone Church" is a fictional sample site. -->
+<!-- Photos: Unsplash free license (hero: photo-1651514645933 by Small Group Network; sample site: photo-1622598453695 by Terren Hurst, photo-1577975039920 by Nicolas Lobos; gallery, tinted to brand colors: photo-1718388466464 by Paul Crook, photo-1525776658211 by Noah Benjamin, photo-1528828085966 by Hannah Busing, photo-1520642413789 by Jon Tyson). "Riverstone Church" is a fictional sample site. -->
 
 <header class="site-head" id="head">
   <div class="wrap">
@@ -414,17 +420,6 @@ footer .legal a:hover{color:#fff}
   </div>
 </section>
 
-<section class="sec">
-  <div class="wrap">
-    <div class="head-block" data-r><h2>Show people what Sunday feels like.</h2><p class="sub">Before someone visits, your website is where they meet your church. We make it warm, clear, and easy to take the next step.</p></div>
-    <div class="gallery" data-r style="--d:.1s">
-      <figure><img src="/img/churches/gathering.webp" width="1100" height="733" alt="People gathered in a warm, modern church space" loading="lazy"><figcaption>Sundays</figcaption></figure>
-      <figure><img src="/img/churches/group.webp" width="1100" height="734" alt="A small group talking around a table" loading="lazy"><figcaption>Groups</figcaption></figure>
-      <figure><img src="/img/churches/study.webp" width="1100" height="619" alt="Open Bibles and coffee on a table during a study" loading="lazy"><figcaption>Bible study</figcaption></figure>
-    </div>
-  </div>
-</section>
-
 <section class="start" id="start">
   <div class="wrap">
     <div data-r>
@@ -443,8 +438,8 @@ footer .legal a:hover{color:#fff}
           <div class="field"><label for="type">City or town</label><input id="type" name="town" autocomplete="address-level2" placeholder="Hermiston, Echo..." required></div>
         </div>
         <div class="row">
-          <div class="field"><label for="name">Your name and role</label><input id="name" name="name" autocomplete="name" placeholder="Pastor, admin, volunteer..." required></div>
-          <div class="field"><label for="contact">Phone or email</label><input id="contact" name="contact" autocomplete="tel" placeholder="Where we send your preview" required></div>
+          <div class="field"><label for="name">Your name and role</label><input id="name" name="name" autocomplete="name" placeholder="Pastor, admin..." required></div>
+          <div class="field"><label for="contact">Phone or email</label><input id="contact" name="contact" autocomplete="tel" placeholder="For your preview" required></div>
         </div>
         <div class="field"><label for="site">Facebook page or current website <span>(optional)</span></label><input id="site" name="current_site" inputmode="url" placeholder="Paste a link"></div>
         <p class="error" id="err" role="alert"></p>
@@ -461,6 +456,18 @@ footer .legal a:hover{color:#fff}
         <h3>You’re all set.</h3>
         <p>Our client care manager will reach out within the next few hours to grab a few details and get your preview moving. Share it with your pastor or board. If you love it, we launch it. If not, you owe nothing.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec linen" id="photos">
+  <div class="wrap">
+    <div class="head-block" data-r><h2>Show people what Sunday feels like.</h2><p class="sub">Before someone visits, your website is where they meet your church. We make it warm, clear, and easy to take the next step.</p></div>
+    <div class="gallery" data-r style="--d:.1s">
+      <figure class="g-a"><img src="/img/churches/wheat.webp" width="1200" height="650" alt="Golden wheat fields and rolling hills at sunset" loading="lazy"><figcaption>Rooted here</figcaption></figure>
+      <figure class="g-b"><img src="/img/churches/field.webp" width="1200" height="800" alt="Friends from church talking in a field at golden hour" loading="lazy"><figcaption>Groups</figcaption></figure>
+      <figure class="g-c"><img src="/img/churches/sunday.webp" width="1200" height="800" alt="People worshiping during a Sunday service" loading="lazy"><figcaption>Sundays</figcaption></figure>
+      <figure class="g-d"><img src="/img/churches/prayer.webp" width="800" height="1200" alt="Friends praying over a young man" loading="lazy"><figcaption>Prayer</figcaption></figure>
     </div>
   </div>
 </section>
@@ -517,7 +524,7 @@ footer .legal a:hover{color:#fff}
   </div>
 </section>
 
-<section class="sec" id="faq">
+<section class="sec sage" id="faq">
   <div class="wrap faq-wrap">
     <div class="head-block" data-r>
       <h2>Questions</h2>
