@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <title>A-1 Property Management | Property Management in Hermiston, Oregon</title>
-<meta name="description" content="Family owned and operated for over 30 years. A-1 Property Management screens tenants, collects rent, and manages rental properties for owners across Umatilla County, Oregon.">
+<meta name="description" content="Family owned and operated for over 30 years. A-1 Property Management screens tenants, collects rent, and manages rental properties in Hermiston, Stanfield, Echo, and Umatilla, Oregon.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&family=Marcellus&family=Libre+Caslon+Text:wght@700&display=swap" rel="stylesheet">
@@ -128,6 +128,34 @@ h2{font-family:var(--h);font-weight:800;font-size:clamp(32px,3.8vw,48px);line-he
 .rent .t{padding:clamp(32px,5vw,60px)}
 .rent p{color:var(--muted);font-size:17px;margin:16px 0 28px}
 
+/* rentals */
+.rentals{background:var(--paper,#f7f4ee)}
+.pv-tag{display:inline-block;margin:-28px 0 26px;font-size:13.5px;font-weight:600;color:#7a5a12;background:var(--gold-l);border:1px dashed var(--gold);border-radius:999px;padding:8px 14px}
+.list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.li{background:var(--card);border:1px solid var(--rule);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column}
+.li .ph{position:relative;aspect-ratio:4/3}
+.li .ph img{width:100%;height:100%;object-fit:cover}
+.li .st{position:absolute;left:14px;top:14px;background:#1f7a4a;color:#fff;font-size:12.5px;font-weight:700;letter-spacing:.04em;padding:7px 11px;border-radius:999px}
+.li .st.soon{background:var(--river)}
+.li .bd{padding:24px;display:flex;flex-direction:column;gap:6px;flex:1}
+.li .pr{font-family:var(--h);font-weight:800;font-size:28px;color:var(--river);letter-spacing:-.02em}
+.li .pr small{font-size:15px;font-weight:600;color:var(--muted);margin-left:2px}
+.li h3{font-family:var(--h);font-weight:700;font-size:19px;color:var(--ink)}
+.li .loc{color:var(--muted);font-size:15px}
+.li ul{list-style:none;margin:10px 0 18px;display:grid;gap:6px;font-size:15px;color:var(--muted)}
+.li ul li::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--gold);margin-right:9px;vertical-align:2px}
+.li .btn{margin-top:auto;justify-content:center}
+.li.none{background:var(--river);border-color:var(--river);color:#fff;justify-content:center}
+.li.none h3{color:#fff;font-size:24px}
+.li.none p{color:rgba(255,255,255,.8);margin:8px 0 22px;font-size:16px}
+.app{margin-top:28px;display:grid;grid-template-columns:1.3fr 1fr;gap:24px 40px;align-items:center;background:var(--card);border:1px solid var(--rule);border-radius:var(--r);padding:clamp(24px,4vw,40px)}
+.app h3{font-family:var(--h);font-weight:800;font-size:28px;color:var(--river);margin-top:8px}
+.app p{color:var(--muted);margin-top:10px;font-size:16.5px;max-width:520px}
+.app .acts{display:flex;flex-wrap:wrap;gap:12px;justify-content:flex-end}
+.app .pv-note{grid-column:1/-1}
+.btn-ghost{border:1.5px solid var(--rule);color:var(--river);background:#fff}
+@media(max-width:900px){.list{grid-template-columns:minmax(0,1fr)}.app{grid-template-columns:minmax(0,1fr)}.app .acts{justify-content:flex-start}.app .acts .btn{flex:1 1 100%;justify-content:center}}
+
 /* reviews */
 .rv{display:grid;grid-template-columns:repeat(6,1fr);gap:22px}
 .rv figure{grid-column:span 2}
@@ -222,7 +250,7 @@ footer .bot{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.1);padding-t
       <a href="#services">Services</a>
       <a href="#why">Why A-1</a>
       <a href="#area">Service area</a>
-      <a href="#rent">Renters</a>
+      <a href="#rentals">Rentals</a>
       <a class="btn btn-gold" href="#contact" aria-label="Owner inquiry"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 11L12 4l8.5 7"/><path d="M5.5 9.5V20h13V9.5"/></svg><span class="tx">Owner inquiry</span></a>
     </nav>
   </div>
@@ -232,7 +260,7 @@ footer .bot{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.1);padding-t
   <img src="img/columbia.webp" alt="The Columbia River under a big summer sky near Hermiston, Oregon">
   <div class="wrap">
     <span class="kicker"><i></i>Family owned and operated for 30+ years</span>
-    <h1>Property management for <span>Umatilla County</span> owners.</h1>
+    <h1>Property management for <span>Hermiston-area</span> owners.</h1>
     <p>We screen your tenants, collect your rent, and look after your property, so you get the income without the 9pm phone calls.</p>
     <div class="ctas">
       <a class="btn btn-gold" href="#contact">Request an owner consultation</a>
@@ -247,7 +275,7 @@ footer .bot{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.1);padding-t
     <div><b>30+ years</b><span>Family owned and operated</span></div>
     <div><b>Local</b><span>Office on Ridgeway Ave</span></div>
     <div><b>Screened</b><span>Every applicant, every time</span></div>
-    <div><b>County-wide</b><span>Hermiston to Pendleton</span></div>
+    <div><b>Close to home</b><span>Hermiston, Stanfield, Echo, Umatilla</span></div>
   </div>
 </div>
 
@@ -291,7 +319,7 @@ footer .bot{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.1);padding-t
       <p class="lead">For more than three decades, A-1 has managed rentals from our own office right here in Hermiston. We know the neighborhoods, the market, and what it takes to keep a property rented and cared for.</p>
       <div class="pts">
         <div><span class="n">01</span><div><h4>You talk to us, directly</h4><p>Call the office and you reach the people managing your property. No phone trees, no out-of-state support line.</p></div></div>
-        <div><span class="n">02</span><div><h4>Local knowledge</h4><p>We know the neighborhoods and the rental market in Hermiston, Umatilla, and across the county.</p></div></div>
+        <div><span class="n">02</span><div><h4>Local knowledge</h4><p>We know the neighborhoods and the rental market in Hermiston, Stanfield, Echo, and Umatilla.</p></div></div>
         <div><span class="n">03</span><div><h4>Built on relationships</h4><p>Thirty years in a small town means our reputation walks into the office every day. We take that seriously.</p></div></div>
       </div>
     </div>
@@ -303,24 +331,64 @@ footer .bot{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.1);padding-t
   <div class="wrap">
     <div class="r">
       <div class="eyebrow" style="color:var(--gold)">Service area</div>
-      <h2>Rooted in Hermiston. Serving all of Umatilla County.</h2>
-      <p>From the Columbia River to the Blue Mountains, we manage rentals in the towns we call home.</p>
+      <h2>Rooted in Hermiston. Focused close to home.</h2>
+      <p>We manage rentals in four towns we know street by street, so every property gets local attention.</p>
     </div>
     <div class="towns r">
-      <span>Hermiston</span><span>Umatilla</span><span>Stanfield</span><span>Echo</span><span>Pendleton</span><span>Milton-Freewater</span>
+      <span>Hermiston</span><span>Stanfield</span><span>Echo</span><span>Umatilla</span>
     </div>
   </div>
   <span class="credit">Hat Rock State Park, near Hermiston</span>
 </section>
 
-<section id="rent" class="rent">
-  <div class="wrap r">
-    <img src="img/house2.webp" alt="Freshly updated rental home">
-    <div class="t">
+<section id="rentals" class="rentals">
+  <div class="wrap">
+    <div class="sh c r">
       <div class="eyebrow">For renters</div>
-      <h2>Looking for a place in Hermiston?</h2>
-      <p>Our available rentals change often. Call the office to hear what is open right now and how to apply.</p>
-      <a class="btn btn-gold" href="tel:+15415674663">Ask what's available</a>
+      <h2>Available rentals.</h2>
+      <p>Openings change often. Here is what is available right now. Call the office to schedule a showing.</p>
+    </div>
+    <div class="pv-tag r">Preview: these are sample listings to show the layout. Your real openings go here.</div>
+    <div class="list">
+      <article class="li r">
+        <div class="ph"><img src="img/ranch.webp" alt="Sample rental listing photo"><span class="st">Available now</span></div>
+        <div class="bd">
+          <div class="pr">$1,350<small>/month</small></div>
+          <h3>3 bed · 2 bath house</h3>
+          <p class="loc">Hermiston</p>
+          <ul><li>Deposit: $1,350</li><li>Attached garage, fenced yard</li><li>Small pets considered</li></ul>
+          <a class="btn btn-river" href="tel:+15415674663">Call about this home</a>
+        </div>
+      </article>
+      <article class="li r" style="transition-delay:.08s">
+        <div class="ph"><img src="img/house2.webp" alt="Sample rental listing photo"><span class="st soon">Available Nov 15</span></div>
+        <div class="bd">
+          <div class="pr">$975<small>/month</small></div>
+          <h3>2 bed · 1 bath duplex</h3>
+          <p class="loc">Umatilla</p>
+          <ul><li>Deposit: $975</li><li>Washer and dryer hookups</li><li>No smoking</li></ul>
+          <a class="btn btn-river" href="tel:+15415674663">Call about this home</a>
+        </div>
+      </article>
+      <article class="li none r" style="transition-delay:.16s">
+        <div class="bd">
+          <h3>Don't see the right fit?</h3>
+          <p>New openings come up often. Call the office and we will let you know what is coming available.</p>
+          <a class="btn btn-gold" href="tel:+15415674663">(541) 567-4663</a>
+        </div>
+      </article>
+    </div>
+    <div class="app r" id="apply">
+      <div>
+        <div class="eyebrow">Rental application</div>
+        <h3>Ready to apply?</h3>
+        <p>Download our rental application, fill it out, and bring it to the office at 398 E Ridgeway Ave. You can also pick up a paper copy during office hours.</p>
+      </div>
+      <div class="acts">
+        <a class="btn btn-gold" href="#apply" data-pv>Download application (PDF)</a>
+        <a class="btn btn-ghost" href="tel:+15415674663">Questions? Call us</a>
+      </div>
+      <div class="pv-note" id="pv-app" role="status" hidden><b>This is a preview.</b> Once you send us your application, this button will open your real application form.</div>
     </div>
   </div>
 </section>
@@ -364,7 +432,7 @@ footer .bot{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.1);padding-t
         <label class="f">Phone<input type="tel" placeholder="(541) 555-0123"></label>
       </div>
       <div class="row">
-        <label class="f">Property city<select><option>Hermiston</option><option>Umatilla</option><option>Stanfield</option><option>Echo</option><option>Pendleton</option><option>Milton-Freewater</option><option>Other</option></select></label>
+        <label class="f">Property city<select><option>Hermiston</option><option>Stanfield</option><option>Echo</option><option>Umatilla</option></select></label>
         <label class="f">Number of units<select><option>1</option><option>2 to 4</option><option>5 to 10</option><option>10+</option></select></label>
       </div>
       <label class="f">Anything we should know?<textarea rows="3" placeholder="Address, current situation, questions..."></textarea></label>
@@ -379,7 +447,7 @@ footer .bot{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.1);padding-t
   <div class="wrap">
     <div>
       <a class="logo" href="#"><img src="img/a1-logo-white.svg" alt="A-1 Property Management" width="170" height="65"></a>
-      <p style="margin-top:16px;max-width:340px">Family owned and operated property management, serving owners and renters across Umatilla County for over 30 years.</p>
+      <p style="margin-top:16px;max-width:340px">Family owned and operated property management, serving owners and renters in Hermiston, Stanfield, Echo, and Umatilla for over 30 years.</p>
     </div>
     <div><h5>Office</h5><p>398 E Ridgeway Ave<br>Hermiston, OR 97838<br>Mail: PO Box 89, Hermiston<br>(541) 567-4663</p></div>
     <div><h5>Hours</h5><p>Mon to Fri: 8am to 12pm, 1pm to 4pm<br>Sat and Sun: Closed</p></div>
@@ -394,6 +462,7 @@ footer .bot{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.1);padding-t
 
 <script>
 if("IntersectionObserver" in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}});},{threshold:.12});document.querySelectorAll(".r").forEach(function(el){io.observe(el);});}else{document.querySelectorAll(".r").forEach(function(el){el.classList.add("in");});}
+document.querySelectorAll("[data-pv]").forEach(function(a){a.addEventListener("click",function(e){e.preventDefault();var n=document.getElementById("pv-app");n.hidden=false;});});
 document.getElementById("note").addEventListener("submit",function(e){e.preventDefault();var n=this.querySelector(".pv-note");n.hidden=false;n.scrollIntoView({behavior:"smooth",block:"nearest"});});
 </script>
 </body>
