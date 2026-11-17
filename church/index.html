@@ -361,7 +361,7 @@ footer .legal a:hover{color:#fff}
   .street i{animation:none}
 }
 </style>
-<script>document.documentElement.className+=" js"+(new Date()>=new Date("2026-11-01T00:00:00-07:00")?" promo-over":"")</script>
+<script>document.documentElement.className+=" js"+(new Date()>=new Date("2026-12-01T00:00:00-08:00")?" promo-over":"")</script>
 </head>
 <body>
 <!-- Photos: Unsplash free license (hero: photo-1651514645933 by Small Group Network; sample site: photo-1622598453695 by Terren Hurst, photo-1577975039920 by Nicolas Lobos; gallery, tinted to brand colors: photo-1718388466464 by Paul Crook, photo-1525776658211 by Noah Benjamin, photo-1528828085966 by Hannah Busing, photo-1520642413789 by Jon Tyson). "Riverstone Church" is a fictional sample site. -->
@@ -395,9 +395,9 @@ footer .legal a:hover{color:#fff}
         <a class="link" href="#how">How it works</a>
       </div>
       <a class="offer promo-on" data-h style="--d:.2s" href="#pricing">
-          <span class="offer-k">Harvest Special · Ends Oct 31</span>
+          <span class="offer-k">Black Friday Special · Ends Nov 30</span>
           <span class="offer-p"><s>$950</s><b>$499</b><span class="offer-u">one time</span></span>
-          <span class="offer-d">Plus a $29/month Care Plan, cancel anytime. Request your preview by Oct 31 to lock in this price.</span>
+          <span class="offer-d">Plus a $29/month Care Plan, cancel anytime. Request your preview by Nov 30 to lock in this price.</span>
         </a>
       <div class="facts" data-h style="--d:.24s">
         <p class="price-line promo-off"><b>$950</b> one time, plus a <b>$29/month Care Plan</b>. Cancel anytime.</p>
@@ -489,7 +489,7 @@ footer .legal a:hover{color:#fff}
       <h2>Simple pricing. Everything handled.</h2>
       <p class="sub">No tech volunteer needed. No logins to figure out. We build it and keep it running.</p>
       <div class="pricing">
-        <div class="price"><div class="label"><span class="promo-on"><span class="badge">Harvest Special</span></span><span class="promo-off">One-time website build</span></div><div class="amt"><span class="promo-on"><s class="was">$950</s>$499</span><span class="promo-off">$950</span></div><p class="what">One time. Design, writing, and launch.<span class="promo-on"> Request your preview by Oct 31.</span></p></div>
+        <div class="price"><div class="label"><span class="promo-on"><span class="badge">Black Friday Special</span></span><span class="promo-off">One-time website build</span></div><div class="amt"><span class="promo-on"><s class="was">$950</s>$499</span><span class="promo-off">$950</span></div><p class="what">One time. Design, writing, and launch.<span class="promo-on"> Request your preview by Nov 30.</span></p></div>
         <span class="plus" aria-hidden="true">+</span>
         <div class="price monthly"><div class="label">Monthly Care Plan</div><div class="amt">$29<small>/month</small></div><p class="what">Hosting, security, backups, and small updates. Cancel anytime. No hidden fees.</p></div>
       </div>
@@ -532,7 +532,7 @@ footer .legal a:hover{color:#fff}
     </div>
     <div class="faq" data-r style="--d:.1s">
       <details><summary>Do we have to pay for the preview?</summary><p>No. The preview is free. You only pay if your church likes it and wants it launched.</p></details>
-      <details><summary>Our board or elders need to approve this. Is that OK?</summary><p>Of course. Share the preview link with whoever needs to see it. Request your preview by October 31 and we’ll hold the $499 Harvest price for your church while you decide.</p></details>
+      <details><summary>Our board or elders need to approve this. Is that OK?</summary><p>Of course. Share the preview link with whoever needs to see it. Request your preview by November 30 and we’ll hold the $499 Black Friday price for your church while you decide.</p></details>
       <details><summary>Can people give online through the site?</summary><p>Yes. We add a Give button that connects to the giving tool you already use, like Tithe.ly, Planning Center, Pushpay, or PayPal. If you don’t have one yet, we’ll help you pick one.</p></details>
       <details><summary>Can we post sermons?</summary><p>Yes. If you stream or upload to YouTube or Facebook, we show your latest messages on the site so they stay current without extra work.</p></details>
       <details><summary>Who updates service times and events?</summary><p>We do. Send us a request and we handle it. Small updates are included in your Care Plan.</p></details>
@@ -546,7 +546,7 @@ footer .legal a:hover{color:#fff}
   <div class="wrap">
     <div data-r>
       <h2>Someone new is looking for a church this Sunday. Help them find yours.</h2>
-      <p class="closer-sub"><span class="promo-on">See your preview website free. Harvest Special <b>$499</b> when you request by Oct 31.</span><span class="promo-off">See your preview website free. No payment to see it.</span></p>
+      <p class="closer-sub"><span class="promo-on">See your preview website free. Black Friday Special <b>$499</b> when you request by Nov 30.</span><span class="promo-off">See your preview website free. No payment to see it.</span></p>
     </div>
     <a class="btn btn-pine" href="#start" data-r style="--d:.1s">Claim my free preview</a>
   </div>
@@ -607,8 +607,8 @@ footer .legal a:hover{color:#fff}
   // Two-step form
   var form=document.getElementById("lead"), err=document.getElementById("err"), btn=document.getElementById("go"), card=form.closest(".card");
 
-  // Harvest Special: tag form leads with the offer until it ends (Oct 31, Pacific)
-  if (new Date() < new Date("2026-11-01T00:00:00-07:00")) { var offer=document.createElement("input"); offer.type="hidden"; offer.name="offer"; offer.value="Harvest Special $499 (church, requested by Oct 31)"; form.appendChild(offer); }
+  // Black Friday Special: tag form leads with the offer until it ends (Nov 30, Pacific)
+  if (new Date() < new Date("2026-12-01T00:00:00-08:00")) { var offer=document.createElement("input"); offer.type="hidden"; offer.name="offer"; offer.value="Black Friday Special $499 (church, requested by Nov 30)"; form.appendChild(offer); }
 
   var emailOk=function(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); };
   var phoneOk=function(v){ return v.replace(/\D/g,"").length>=10; };
@@ -776,7 +776,7 @@ footer .legal a:hover{color:#fff}
   var QA=[
     ["How does the free preview work?","Fill out the short form on this page. We design your preview website and send you a link to share with your team. It’s <b>free</b>, and you only pay if you love it and want it launched."+"<br>"+CTA],
     ["What does it cost?", promo
-      ? "Right now it’s our <b>Harvest Special: $499</b> one time for the full website (normally $950) when you request your preview by Oct 31. Then <b>$29/month</b> for hosting, security, backups, and small updates. Cancel anytime. No hidden fees."+"<br>"+CTA
+      ? "Right now it’s our <b>Black Friday Special: $499</b> one time for the full website (normally $950) when you request your preview by Nov 30. Then <b>$29/month</b> for hosting, security, backups, and small updates. Cancel anytime. No hidden fees."+"<br>"+CTA
       : "<b>$950</b> one time for the full website: design, writing, and launch. Then <b>$29/month</b> for hosting, security, backups, and small updates. Cancel anytime. No hidden fees."+"<br>"+CTA],
     ["How fast can I launch?","Your full site is live <b>within 7 days</b> of saying yes. We handle the design, the writing, and the setup. You just tell us about your church."],
     ["What areas do you serve?","Hermiston, Pendleton, Umatilla, Boardman, Irrigon, Stanfield, Echo, the Tri-Cities, and the rest of Eastern Oregon. Everything happens online, so we can work with you wherever you are."]
